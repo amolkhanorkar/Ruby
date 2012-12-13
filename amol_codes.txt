@@ -1,0 +1,208 @@
+Que1)Find occurance of "RUBY"
+irb(main):003:0> string1="RUBY parses a file by looking for <br/> one of the special tags that tells it to start interpreting the text as RUBY code. The parser then executes all of the code it finds until it runs into a RUBY closing <br/> tag."
+=> "RUBY parses a file by looking for <br/> one of the special tags that tells it to start interpreting the text as RUBY code. The parser then executes all of the code it finds until it runs into a RUBY closing <br/> tag."
+irb(main):005:0> string1.scan("RUBY").length
+=> 3
+
+Que2)Find the position where RUBY occures in the string 1
+irb(main):074:0> string1="RUBY parses a file by looking for <br/> one of the special tags that tells it to start interpreting the text as RUBY code. The parser then executes all of the code it finds until it runs into a RUBY closing <br/> tag."
+=> "RUBY parses a file by looking for <br/> one of the special tags that tells it to start interpreting the text as RUBY code. The parser then executes all of the code it finds until it runs into a RUBY closing <br/> tag."
+irb(main):075:0> string1.enum_for(:scan, /RUBY/).map { Regexp.last_match.begin(0) }=> [0, 112, 194]
+
+Que3)Create array of words in string 1 & print them using a recursive function.
+irb(main):136:0> array=string1.split(' ')
+=> ["RUBY", "parses", "a", "file", "by", "looking", "for", "one", "of", "the", "special", "tags", "that", "tells", "it", "to", "start", "interpreting", "the", "text", "as", "RUBY", "code.", "The", "parser", "then", "executes", "all", "of", "the", "code", "it", "finds", "until", "it", "runs", "into", "a", "RUBY", "closing", "tag."]
+irb(main):137:0> array.each do|i|
+irb(main):144:1* puts i
+irb(main):145:1> end
+RUBY
+parses
+a
+file
+by
+looking
+for
+one
+of
+the
+special
+tags
+that
+tells
+it
+to
+start
+interpreting
+the
+text
+as
+RUBY
+code.
+The
+parser
+then
+executes
+all
+of
+the
+code
+it
+finds
+until
+it
+runs
+into
+a
+RUBY
+closing
+tag.
+=> ["RUBY", "parses", "a", "file", "by", "looking", "for", "one", "of", "the", "special", "tags", "that", "tells", "it", "to", "start", "interpreting", "the", "text", "as", "RUBY", "code.", "The", "parser", "then", "executes", "all", "of", "the", "code", "it", "finds", "until", "it", "runs", "into", "a", "RUBY", "closing", "tag."]
+irb(main):146:0> Create array of words in string 1 & print them using a recursive function.
+
+
+Que4)Capitalize string1
+irb(main):032:0> string1.upcase
+=> "RUBY PARSES A FILE BY LOOKING FOR <BR/> ONE OF THE SPECIAL TAGS THAT TELLS IT TO START INTERPRETING THE TEXT AS RUBY CODE. THE PARSER THEN EXECUTES ALL OF THE CODE IT FINDS UNTIL IT RUNS INTO A RUBY CLOSING <BR/> TAG."
+
+Que5)Combine string1 & string2
+irb(main):034:0> string1+string2
+=> "Ruby parses a file by looking for <br/> one of the special tags that tells it to start interpreting the text as ruby code. the parser then executes all of the code it finds until it runs into a ruby closing <br/> tag.RUBY does not require (or support) explicit type definition in variable declaration; a variable's type is determined by the context in which the variable is used."
+
+Que7)Print Date
+irb(main):059:0> time1 = Time.new()
+=> Thu Dec 13 15:36:17 +0530 2012
+irb(main):060:0> time1.strftime("%d-%b-%Y")
+=> "13-Dec-2012"
+OR
+irb(main):038:0> Time.now
+=> Thu Dec 13 15:15:01 +0530 2012
+
+Que8)Print date "12th Jan 2012"
+irb(main):155:0> Time.now
+=> Thu Jan 12 17:32:22 +0530 2012
+irb(main):156:0> time1=Time.now()
+=> Thu Jan 12 17:33:35 +0530 2012
+irb(main):157:0> time1.strftime("%d-%b-%Y")
+=> "12-Jan-2012"
+
+
+Que9)Add 7 days to current date
+irb(main):106:0> t1=Time.new()
+=> Thu Dec 13 16:16:01 +0530 2012
+irb(main):107:0> Time.gm(t1.year,t1.month,t1.day+7)
+=> Thu Dec 20 00:00:00 UTC 2012
+OR
+irb(main):095:0> now = Time.now+604800
+=> Thu Dec 20 16:09:39 +0530 2012
+OR
+irb(main):121:0> Time.now + (7*24*60*60)
+=> Thu Dec 20 16:28:14 +0530 2012
+
+
+Que10)Cut the string 1 into 4 parts & print it
+irb(main):087:0> string1.split(' ', 4)
+=> ["RUBY", "parses", "a", "file by looking for <br/> one of the special tags that tells it to start interpreting the text as RUBY code. The parser then executes all of the code it finds until it runs into a RUBY closing <br/> tag."]
+
+Que11)Divide the string 1 by occurances of '.'Combine the array in reverse word sequence
+irb(main):162:0> array=string1.reverse()
+=> ".gat  gnisolc YBUR a otni snur ti litnu sdnif ti edoc eht fo lla setucexe neht resrap ehT .edoc YBUR sa txet eht gniterpretni trats ot ti sllet taht sgat laiceps eht fo eno  rof gnikool yb elif a sesrap YBUR"
+irb(main):163:0> array.each do |i|
+irb(main):164:1* puts i
+irb(main):165:1> end
+.gat  gnisolc YBUR a otni snur ti litnu sdnif ti edoc eht fo lla setucexe neht resrap ehT .edoc YBUR sa txet eht gniterpretni trats ot ti sllet taht sgat laiceps eht fo eno  rof gnikool yb elif a sesrap YBUR
+=> ".gat  gnisolc YBUR a otni snur ti litnu sdnif ti edoc eht fo lla setucexe neht resrap ehT .edoc YBUR sa txet eht gniterpretni trats ot ti sllet taht sgat laiceps eht fo eno  rof gnikool yb elif a sesrap YBUR"
+
+
+
+Que12)Remove the HTML characters from string.
+irb(main):134:0> str=string1.gsub!(/(<[^>]*>)|\n|\t/s) {""}
+=> "RUBY parses a file by looking for  one of the special tags that tells it to start interpreting the text as RUBY code. The parser then executes all of the code it finds until it runs into a RUBY closing  tag."
+
+Que13)Scaning RUBY in string1
+irb(main):208:0> puts string1.scan("RUBY")
+RUBY
+RUBY
+RUBY
+=> nil
+
+
+
+
+Que14)Find length of string1 & string2
+irb(main):015:0> string1.length
+=> 217
+irb(main):016:0> string2.length
+=> 162
+
+Que15)Create file & write string 1 to that file using RUBY functions
+irb(main):168:0> File=File.new("/home/webonise/Documents/Ruby/a.txt", "w+")
+(irb):168: warning: already initialized constant File
+=> #<File:/home/webonise/Documents/Ruby/a.txt>
+irb(main):169:0> File.write("RUBY parses a file by looking for <br/> one of the special tags that tells it to start interpreting the text as RUBY code. The parser then executes all of the code it finds until it runs into a RUBY closing <br/> tag.")
+=> 5
+irb(main):170:0> File.close
+
+Que16)Global Variables in RUBY
+irb(main):206:0> puts global_variables
+$-w
+$:
+$.
+$KCODE
+$-F
+$*
+$stderr
+$,
+$`
+$binding
+$-p
+$"
+$$
+$<
+$@
+$-v
+$-i
+$deferr
+$\
+$=
+$;
+$PROGRAM_NAME
+$stdout
+$&
+$-d
+$LOAD_PATH
+$-a
+$VERBOSE
+$FILENAME
+$defout
+$-0
+$+
+$0
+$stdin
+$~
+$DEBUG
+$-I
+$_
+$-K
+$>
+$/
+$'
+$-l
+$LOADED_FEATURES
+$?
+$SAFE
+$!
+=> nil
+
+
+
+Que20)Print date after 20 days from current date
+irb(main):120:0> Time.now + (20*24*60*60)
+=> Wed Jan 02 16:27:02 +0530 2013
+
+Que21)Date in array format
+irb(main):204:0> Date2=Time.now
+=> Thu Dec 13 18:22:57 +0530 2012
+irb(main):205:0> values=Date2.to_a
+=> [57, 22, 18, 13, 12, 2012, 4, 348, false, "IST"]
+
+
