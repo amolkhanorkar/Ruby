@@ -1,0 +1,65 @@
+require 'rubygems'
+require 'open-uri'
+require 'nokogiri'
+require 'active_record'
+require 'mysql2'
+
+#...........variables...........#
+$recipe_ingredient =""
+$recipe_method =""
+
+#.........Recipe Index..........#
+doc = Nokogiri::HTML(open('http://www.simplyrecipes.com/index/'))
+doc.xpath('//div[@class="entry-content"]/p/a/@href').each_with_index do |node,i|
+
+#..........Menu Name...........#
+  doc = Nokogiri::HTML(open(node.text))
+    doc.xpath('//div[@class="entry-header"]/h2/a/@href').each do |node1|
+
+#...........Menu Sub-Name..........#
+      doc = Nokogiri::HTML(open(node1.text))
+        doc.xpath('//div[@class="recipe-callout"]/h2').each do |node2|
+        puts node2.text
+#............Ingredients............#
+    doc.xpath('//div[@class="recipe-callout"]/div[@id="recipe-ingredients"]/ul/li').each do |ingredients|
+    $recipe_ingrdient.concat(ingredients.text).concat(",")
+    end
+#............Method.............#
+  doc.xpath('//div[@class="recipe-callout"]/div[@id="recipe-method"]/p').each do |method|
+  $recipe_method.concat(method.text).concat(",")
+  end
+
+puts "-----------------------------------------"
+puts "Recipe Ingrdients"
+puts "-----------------------------------------"
+puts $recipe_ingredient
+$recipe_ingredient=""
+puts "-----------------------------------------"
+puts "Preparation Metnod"
+puts "-----------------------------------------"
+puts $recipe_method 
+$recipe_method=""
+end
+end
+break if i==3
+end
+
+=begin
+class Rubyist < ActiveRecord::Base  
+end 
+
+ActiveRecord::Base.establish_connection(  
+:adapter => "mysql",  
+:host => "localhost",  
+:database => "ruby",
+:password => "admin"  
+)  
+
+while $j<700 do
+$val1=$recipe2.at($j)
+$val2=$recipe1.at($j)
+Recipe.create(:Recipe_name => $val2,:Link => $val1)
+$j +=1
+end
+
+=end
